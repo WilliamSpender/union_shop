@@ -6,7 +6,7 @@ This repository contains the coursework project for students enrolled in the **P
 
 The Student Union has an e-commerce website, which you can access via this link: [https://shop.upsu.net](https://shop.upsu.net)
 
-In short, your task is to recreate the same website using Flutter. You must not start from scratch, as this repository provides an incomplete Flutter implementation of the Student Union site that you must build upon. [The getting started section of this document](#getting-started) will explain more.
+In short, your task is to recreate the same website using Flutter. You must not start from scratch, as this repository provides an incomplete Flutter implementation of the Student Union site that you must build upon. [The getting started section of this document](#getting-started) will explain more. Once you have completed the application, you will submit the link to your forked repository on Moodle for assessment. See the [submission section](#submission) for more details.
 
 ⚠️ The UPSU.net link on the navbar of the union website is a link to an external site. This is not part of the application that you need to develop. So ignore the link highlighted below:
 
@@ -135,11 +135,11 @@ The coursework document (also available on Moodle and the [homepage](https://man
 
 ## Submission
 
-You need submit the link to your forked repository on Moodle before the deadline. Open the Moodle page for Programming Applications and Programming Languages (M30235) or User Experience Design and Implementation (M32605) and find the submission section titled "Item 1 - Set exercise (coursework) (CW)". See below:
+You need to submit the link to your forked repository on Moodle before the deadline. Open the Moodle page for Programming Applications and Programming Languages (M30235) or User Experience Design and Implementation (M32605) and find the submission section titled "Item 1 - Set exercise (coursework) (CW)". See below:
 
 ![Moodle Submission Page](https://raw.githubusercontent.com/manighahrmani/sandwich_shop/refs/heads/main/images/screenshot_moodle_submission_section.png)
 
-Open the On time or the Late/Extenuating Circumstances submission link and add click on Add submission. There you will find an editable Online text field. Paste the link to the GitHub repository for your coursework in the provided text field and click on Save changes. You are **not** submitting any files for this coursework.
+Open the On time or the Late/Extenuating Circumstances submission link and click on Add submission. There you will find an editable Online text field. Paste the link to the GitHub repository for your coursework in the provided text field and click on Save changes. You are **not** submitting any files for this coursework.
 
 ![Moodle Submission Online Text](https://raw.githubusercontent.com/manighahrmani/sandwich_shop/refs/heads/main/images/screenshot_moodle_submission_online_text.png)
 
