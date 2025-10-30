@@ -17,6 +17,8 @@ class UnionShopApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
       ),
       home: const HomeScreen(),
+      // When navigating to '/product', build and return the ProductPage
+      // In your browser, try this link: http://localhost:49856/#/product
       routes: {'/product': (context) => const ProductPage()},
     );
   }
