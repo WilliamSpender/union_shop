@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'ui_constructors.dart';
 
-class ProductPage extends StatelessWidget {
-  const ProductPage({super.key});
+class AboutUsPage extends StatelessWidget {
+  const AboutUsPage({super.key});
 
   void navigateToHome(BuildContext context) {
     Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
