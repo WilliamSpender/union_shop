@@ -3,6 +3,8 @@ import 'package:union_shop/about_us_page.dart';
 import 'package:union_shop/ui_constructors.dart';
 import 'package:union_shop/product_page.dart';
 
+import 'collections_page.dart';
+
 void main() {
   runApp(const UnionShopApp());
 }
@@ -28,6 +30,7 @@ class UnionShopApp extends StatelessWidget {
         '/search': (context) => const AboutUsPage(),//todo replace placeholders with actual pages
         '/cart': (context) => const AboutUsPage(),
         '/sign-in': (context) => const AboutUsPage(),
+        '/collections': (context) => const CollectionsPage(),
       },
     );
   }
