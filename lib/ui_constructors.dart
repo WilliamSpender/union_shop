@@ -117,3 +117,11 @@ Container generateFooter(
     ),
   );
 }
+
+void navigateToHome(BuildContext context) {
+  Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+}
+
+void navigateToAboutUs(BuildContext context) {
+  Navigator.pushNamed(context, '/about-us');
+}
