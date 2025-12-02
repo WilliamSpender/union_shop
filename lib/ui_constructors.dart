@@ -84,6 +84,22 @@ Expanded generateMainHeader(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   TextButton(
+                    onPressed: () => navigateToHome(context),
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      minimumSize: const Size(0, 0),
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                    child: Text(
+                      'Home',
+                      style: TextStyle(
+                        color: Colors.grey[700],
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  TextButton(
                     onPressed: () => navigateToGeneric(context, 'about-us'),
                     style: TextButton.styleFrom(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
