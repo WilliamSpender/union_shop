@@ -41,21 +41,44 @@ class AboutUsPage extends StatelessWidget {
 
             //Main body
             Container(
-              height: 100,
               color: Colors.white,
-              child: const Column(
-                children: [
-                  Text(
-                    'About Us',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white, fontSize: 24),
-                  ),
-                  Text(
-                    'about us details placeholder',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white, fontSize: 16),
-                  ),
-                ],
+              child: const Padding(
+                padding: EdgeInsets.all(40.0),
+                child: Column(
+                  children: [
+                    Text(
+                      'About Us',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.black,
+                        letterSpacing: 1,
+                      ),
+                    ),
+                    SizedBox(height: 48),
+                    Text(
+                      """
+                      Welcome
+                      
+                      text
+                      text
+                      
+                      text
+                      text
+                      
+                      text
+                      text
+                      
+                      text
+                      
+                      text""",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.grey,
+                        letterSpacing: 1,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
 
