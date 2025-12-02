@@ -42,6 +42,7 @@ class AboutUsPage extends StatelessWidget {
             //Main body
             Container(
               color: Colors.white,
+              width: double.infinity,
               child: const Padding(
                 padding: EdgeInsets.all(40.0),
                 child: Column(
@@ -49,30 +50,16 @@ class AboutUsPage extends StatelessWidget {
                     Text(
                       'About Us',
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 24,
                         color: Colors.black,
                         letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     SizedBox(height: 48),
-                    Text(
-                      """
-                      Welcome
-                      
-                      text
-                      text
-                      
-                      text
-                      text
-                      
-                      text
-                      text
-                      
-                      text
-                      
-                      text""",
+                    Text(about_us_message,
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 16,
                         color: Colors.grey,
                         letterSpacing: 1,
                       ),
@@ -89,4 +76,8 @@ class AboutUsPage extends StatelessWidget {
       ),
     );
   }
+
+  static const String about_us_message = '''
+  
+''';
 }
