@@ -37,7 +37,7 @@ class AboutUsPage extends StatelessWidget {
                     ),
                   ),
                   // Main header
-                  generateMainHeader(context, navigateToHome, placeholderCallbackForButtons,
+                  generateMainHeader(context, placeholderCallbackForButtons,
                           (ctx) {}, (ctx) {}),
                 ],
               ),
