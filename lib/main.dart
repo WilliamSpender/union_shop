@@ -46,33 +46,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            // Header
-            Container(
-              height: 100,
-              color: Colors.white,
-              child: Column(
-                children: [
-                  // Top banner
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    color: const Color(0xFF4d2963),
-                    child: const Text(
-                      'PLACEHOLDER HEADER TEXT',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white, fontSize: 16),
-                    ),
-                  ),
-                  // Main header
-                  generateMainHeader(context),
-                ],
-              ),
-            ),
-
+    return buildGenericPage(context, [
             // Hero Section
             SizedBox(
               height: 400,
@@ -201,12 +175,8 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            // Footer
-            generateFooter(context),
           ],
-        ),
-      ),
-    );
+        );
   }
 }
 
