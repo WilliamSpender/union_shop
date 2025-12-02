@@ -32,10 +32,6 @@ class UnionShopApp extends StatelessWidget {
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  void navigateToHome(BuildContext context) {
-    Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-  }
-
   void navigateToProduct(BuildContext context) {
     Navigator.pushNamed(context, '/product');
   }
