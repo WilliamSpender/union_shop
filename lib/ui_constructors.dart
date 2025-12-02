@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
 Expanded generateMainHeader(
-  BuildContext context,
-  void Function() placeholderCallbackForButtons,
-  void Function(BuildContext) navigateToSignIn,
-  void Function(BuildContext) navigateToCart,
+  BuildContext context
 ) {
   return Expanded(
     child: Container(
@@ -37,7 +34,7 @@ Expanded generateMainHeader(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   TextButton(
-                    onPressed: () => navigateToAboutUs(context),
+                    onPressed: () => navigateToGeneric(context, 'about-us'),
                     style: TextButton.styleFrom(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       minimumSize: const Size(0, 0),
@@ -72,7 +69,7 @@ Expanded generateMainHeader(
                     minWidth: 32,
                     minHeight: 32,
                   ),
-                  onPressed: placeholderCallbackForButtons,
+                  onPressed: () => navigateToGeneric(context, 'search'),
                 ),
                 IconButton(
                   icon: const Icon(
@@ -85,7 +82,7 @@ Expanded generateMainHeader(
                     minWidth: 32,
                     minHeight: 32,
                   ),
-                  onPressed: () => navigateToSignIn(context),
+                  onPressed: () => navigateToGeneric(context, 'sign-in'),
                 ),
                 IconButton(
                   icon: const Icon(
@@ -98,7 +95,7 @@ Expanded generateMainHeader(
                     minWidth: 32,
                     minHeight: 32,
                   ),
-                  onPressed: () => navigateToCart(context),
+                  onPressed: () => navigateToGeneric(context, 'cart'),
                 ),
                 IconButton(
                   icon: const Icon(
@@ -111,7 +108,7 @@ Expanded generateMainHeader(
                     minWidth: 32,
                     minHeight: 32,
                   ),
-                  onPressed: placeholderCallbackForButtons,
+                  onPressed: () => navigateToHome(context),//todo implement menu. This is a placeholder for menu
                 ),
               ],
             ),
@@ -251,6 +248,25 @@ void navigateToHome(BuildContext context) {
   Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
 }
 
-void navigateToAboutUs(BuildContext context) {
-  Navigator.pushNamed(context, '/about-us');
+void navigateToGeneric(BuildContext context, String routeName) {
+  Navigator.pushNamed(context, '/$routeName');
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

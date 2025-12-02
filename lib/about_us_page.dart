@@ -5,10 +5,6 @@ import 'ui_constructors.dart';
 class AboutUsPage extends StatelessWidget {
   const AboutUsPage({super.key});
 
-  void placeholderCallbackForButtons() {
-    // This is the event handler for buttons that don't work yet
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,8 +29,7 @@ class AboutUsPage extends StatelessWidget {
                     ),
                   ),
                   // Main header
-                  generateMainHeader(context, placeholderCallbackForButtons,
-                          (ctx) {}, (ctx) {}),
+                  generateMainHeader(context),
                 ],
               ),
             ),

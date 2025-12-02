@@ -64,8 +64,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   // Main header
-                  generateMainHeader(context, placeholderCallbackForButtons,
-                      (ctx) {}, (ctx) {}),
+                  generateMainHeader(context),
                 ],
               ),
             ),
