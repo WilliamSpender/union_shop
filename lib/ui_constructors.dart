@@ -10,7 +10,15 @@ Widget buildGenericPage(BuildContext context, List<Widget> bodyContent) {
           // Header
           Container(
             height: 100,
-            color: Colors.white,
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              border: Border(
+                bottom: BorderSide(
+                  color: Colors.grey,
+                  width: 1.5,
+                ),
+              ),
+            ),
             child: Column(
               children: [
                 // Top banner
