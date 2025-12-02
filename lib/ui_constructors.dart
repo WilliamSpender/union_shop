@@ -129,11 +129,11 @@ Container generateFooter(
     width: double.infinity,
     color: Colors.grey[50],
     padding: const EdgeInsets.all(24),
-    child: const Center(
+    child: Center(
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Column(
+          const Column(
             children: [
               SizedBox(
                 child: Text(
@@ -157,8 +157,8 @@ Container generateFooter(
               ),
             ],
           ),
-          SizedBox(width: 40),
-          Column(
+          const SizedBox(width: 40),
+          const Column(
             children: [
               SizedBox(
                 child: Text(
@@ -182,27 +182,49 @@ Container generateFooter(
               ),
             ],
           ),
-          SizedBox(width: 40),
+          const SizedBox(width: 40),
           Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 child: Text(
-                  'Opening Hours',
+                  'Help and Info',
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 20,
                       fontWeight: FontWeight.w600),
                 ),
               ),
-              SizedBox(height: 20),
-              SizedBox(
-                child: Text(
-                  openingHoursMessage,
+              const SizedBox(height: 20),
+              TextButton(
+                onPressed: () => const {},//todo navigate to search,
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  minimumSize: const Size(0, 0),
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
+                child: const Text(
+                  'Search',
                   style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      fontStyle: FontStyle.italic),
+                    color: Colors.grey,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: () => const {},//todo navigate to terms and conditions,
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  minimumSize: const Size(0, 0),
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
+                child: const Text(
+                  'Terms & Conditions',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ],
