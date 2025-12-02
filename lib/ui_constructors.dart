@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 Expanded generateMainHeader(
-    BuildContext context,
-    void Function() placeholderCallbackForButtons,
-    void Function(BuildContext) navigateToSignIn,
-    void Function(BuildContext) navigateToCart,
-    ){
+  BuildContext context,
+  void Function() placeholderCallbackForButtons,
+  void Function(BuildContext) navigateToSignIn,
+  void Function(BuildContext) navigateToCart,
+) {
   return Expanded(
     child: Container(
       padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -25,8 +25,7 @@ Expanded generateMainHeader(
                   width: 18,
                   height: 18,
                   child: const Center(
-                    child: Icon(Icons.image_not_supported,
-                        color: Colors.grey),
+                    child: Icon(Icons.image_not_supported, color: Colors.grey),
                   ),
                 );
               },
@@ -124,22 +123,108 @@ Expanded generateMainHeader(
 }
 
 Container generateFooter(
-    BuildContext context,
-    ){
-  return             Container(
+  BuildContext context,
+) {
+  return Container(
     width: double.infinity,
     color: Colors.grey[50],
     padding: const EdgeInsets.all(24),
-    child: const Text(
-      'Placeholder Footer',
-      style: TextStyle(
-        color: Colors.grey,
-        fontSize: 16,
-        fontWeight: FontWeight.w600,
+    child: const Center(
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Column(
+            children: [
+              SizedBox(
+                child: Text(
+                  'Opening Hours',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600),
+                ),
+              ),
+              SizedBox(height: 20),
+              SizedBox(
+                child: Text(
+                  openingHoursMessage,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      fontStyle: FontStyle.italic),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(width: 40),
+          Column(
+            children: [
+              SizedBox(
+                child: Text(
+                  'Opening Hours',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600),
+                ),
+              ),
+              SizedBox(height: 20),
+              SizedBox(
+                child: Text(
+                  openingHoursMessage,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      fontStyle: FontStyle.italic),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(width: 40),
+          Column(
+            children: [
+              SizedBox(
+                child: Text(
+                  'Opening Hours',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600),
+                ),
+              ),
+              SizedBox(height: 20),
+              SizedBox(
+                child: Text(
+                  openingHoursMessage,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      fontStyle: FontStyle.italic),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     ),
   );
 }
+
+const String openingHoursMessage = '''
+❄️ Winter Break Closure Dates ❄️
+Closing 4pm 19/12/2025
+Reopening 10am 05/01/2026
+Last post date: 12pm on 18/12/2025
+------------------------
+(Term Time)
+Monday - Friday 10am - 4pm
+(Outside of Term Time / Consolidation Weeks)
+Monday - Friday 10am - 3pm
+Purchase online 24/7
+''';
 
 void navigateToHome(BuildContext context) {
   Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
