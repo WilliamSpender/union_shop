@@ -1,5 +1,47 @@
 import 'package:flutter/material.dart';
 
+/// Builds a generic page layout with header and footer.
+/// Accepts a list of widgets for the body content.
+Widget buildGenericPage(BuildContext context, List<Widget> bodyContent) {
+  return Scaffold(
+    body: SingleChildScrollView(
+      child: Column(
+        children: [
+          // Header
+          Container(
+            height: 100,
+            color: Colors.white,
+            child: Column(
+              children: [
+                // Top banner
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  color: const Color(0xFF4d2963),
+                  child: const Text(
+                    'PLACEHOLDER HEADER TEXT',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ),
+                // Main header
+                generateMainHeader(context),
+              ],
+            ),
+          ),
+
+          ...bodyContent,
+
+          // Footer
+          generateFooter(context),
+        ],
+      ),
+    ),
+  );
+}
+
+
+
 Expanded generateMainHeader(
   BuildContext context
 ) {
