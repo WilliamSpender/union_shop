@@ -131,34 +131,13 @@ Container generateFooter(
     padding: const EdgeInsets.all(24),
     child: Center(
       child: Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Column(
-            children: [
-              SizedBox(
-                child: Text(
-                  'Opening Hours',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600),
-                ),
-              ),
-              SizedBox(height: 20),
-              SizedBox(
-                child: Text(
-                  openingHoursMessage,
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      fontStyle: FontStyle.italic),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(width: 40),
-          const Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 child: Text(
@@ -184,6 +163,8 @@ Container generateFooter(
           ),
           const SizedBox(width: 40),
           Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
                 child: Text(
@@ -227,6 +208,24 @@ Container generateFooter(
                   ),
                 ),
               ),
+            ],
+          ),
+          const SizedBox(width: 40),
+          const Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                child: Text(
+                  'Latest Offers',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600),
+                ),
+              ),
+              SizedBox(height: 20),
+              //Text input box with 'Email address' and 'Subscribe' button
             ],
           ),
         ],
