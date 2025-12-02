@@ -78,7 +78,7 @@ class AboutUsPage extends StatelessWidget {
   }
 
   static const String aboutUsMessage = '''
-  Welcome to the Union Shop!
+Welcome to the Union Shop!
 
 We’re dedicated to giving you the very best University branded products, with a range of clothing and merchandise available to shop all year round! We even offer an exclusive personalisation service!
 
