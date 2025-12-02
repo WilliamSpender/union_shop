@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 Expanded generateMainHeader(
     BuildContext context,
-    void Function(BuildContext) navigateToHome,
     void Function() placeholderCallbackForButtons,
     void Function(BuildContext) navigateToSignIn,
     void Function(BuildContext) navigateToCart,
