@@ -193,10 +193,9 @@ Container generateFooter(
     color: Colors.grey[50],
     padding: const EdgeInsets.all(24),
     child: Center(
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Wrap(
+        spacing: 40,
+        alignment: WrapAlignment.start,
         children: [
           const Column(
             mainAxisSize: MainAxisSize.min,
@@ -224,7 +223,6 @@ Container generateFooter(
               ),
             ],
           ),
-          const SizedBox(width: 40),
           Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -273,7 +271,6 @@ Container generateFooter(
               ),
             ],
           ),
-          const SizedBox(width: 40),
           const Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
