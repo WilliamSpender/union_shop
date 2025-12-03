@@ -273,12 +273,15 @@ class _GenericPageState extends State<GenericPage> {
                           //Union Logo
                           getUnionLogo(context),
 
-                          //Navigation selections. HSow only when screen is small
-                          if(!isSmallScreen)Expanded(
-                            child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: navSelectionBuilder(context)),
+                          //Navigation selections. Show only when screen is small
+                          Expanded(
+                            child: isSmallScreen
+                                ? const SizedBox.shrink() // empty placeholder
+                                : Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: navSelectionBuilder(context),
+                            ),
                           ),
 
                           //Icons
@@ -354,7 +357,7 @@ class _GenericPageState extends State<GenericPage> {
             if (_showMenu&isSmallScreen)
               Container(
                 width: double.infinity,
-                color: Colors.grey[200],
+                color: Colors.grey,
                 child: Column(
                   children: navSelectionBuilder(context)
                 ),
