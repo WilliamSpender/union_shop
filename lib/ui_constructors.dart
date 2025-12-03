@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 
-/// Builds a generic page layout with header and footer.
-/// Accepts a list of widgets for the body content.
-
-
 Container generateFooter(
   BuildContext context,
 ) {
@@ -212,6 +208,8 @@ GestureDetector getUnionLogo(BuildContext context) {
   );
 }
 
+/// Builds a generic page layout with header and footer.
+/// Accepts a list of widgets for the body content.
 class GenericPage extends StatefulWidget {
   final List<Widget> bodyContent;
 
