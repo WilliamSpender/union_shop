@@ -77,7 +77,7 @@ class ProductPage extends StatelessWidget {
                 const SizedBox(height: 12),
 
                 const DropdownMenu(
-                  label: const Text('Size'),
+                  label: Text('Size'),
                   textStyle: TextStyle(fontSize: 14),
                   initialSelection: 'Medium',
                   dropdownMenuEntries: sizes,
