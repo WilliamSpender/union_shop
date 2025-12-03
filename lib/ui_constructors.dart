@@ -33,7 +33,7 @@ Widget buildGenericPage(BuildContext context, List<Widget> bodyContent) {
                   ),
                 ),
                 // Main header
-                generateMainHeader(context),
+                NavBar(),
               ],
             ),
           ),
@@ -48,88 +48,6 @@ Widget buildGenericPage(BuildContext context, List<Widget> bodyContent) {
   );
 }
 
-Expanded generateMainHeader(BuildContext context) {
-  List<Widget> children = navSelectionBuilder(context);
-  return Expanded(
-    child: Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Row(
-        children: [
-          unionLogo,
-          Expanded(
-            child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: children),
-          ),
-
-          //Icons
-          ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 600),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                IconButton(
-                  icon: const Icon(
-                    Icons.search,
-                    size: 18,
-                    color: Colors.grey,
-                  ),
-                  padding: const EdgeInsets.all(8),
-                  constraints: const BoxConstraints(
-                    minWidth: 32,
-                    minHeight: 32,
-                  ),
-                  onPressed: () => navigateToGeneric(context, 'search'),
-                ),
-                IconButton(
-                  icon: const Icon(
-                    Icons.person_outline,
-                    size: 18,
-                    color: Colors.grey,
-                  ),
-                  padding: const EdgeInsets.all(8),
-                  constraints: const BoxConstraints(
-                    minWidth: 32,
-                    minHeight: 32,
-                  ),
-                  onPressed: () => navigateToGeneric(context, 'sign-in'),
-                ),
-                IconButton(
-                  icon: const Icon(
-                    Icons.shopping_bag_outlined,
-                    size: 18,
-                    color: Colors.grey,
-                  ),
-                  padding: const EdgeInsets.all(8),
-                  constraints: const BoxConstraints(
-                    minWidth: 32,
-                    minHeight: 32,
-                  ),
-                  onPressed: () => navigateToGeneric(context, 'cart'),
-                ),
-                IconButton(
-                  icon: const Icon(
-                    Icons.menu,
-                    size: 18,
-                    color: Colors.grey,
-                  ),
-                  padding: const EdgeInsets.all(8),
-                  constraints: const BoxConstraints(
-                    minWidth: 32,
-                    minHeight: 32,
-                  ),
-                  onPressed: () => navigateToHome(
-                      context), //todo implement menu. This is a placeholder for menu
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
-}
 
 Container generateFooter(
   BuildContext context,
