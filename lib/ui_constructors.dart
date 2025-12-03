@@ -5,7 +5,7 @@ Container generateFooter(
 ) {
   return Container(
     width: double.infinity,
-    color: Colors.grey[50],
+    color: Colors.grey[200],
     padding: const EdgeInsets.all(24),
     child: Center(
       child: Wrap(
