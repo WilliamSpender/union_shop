@@ -33,7 +33,7 @@ Widget buildGenericPage(BuildContext context, List<Widget> bodyContent) {
                   ),
                 ),
                 // Main header
-                const NavBar(),
+                const GenericPage(),
 
               ],
             ),
@@ -258,14 +258,19 @@ GestureDetector getUnionLogo(BuildContext context) {
   );
 }
 
-class NavBar extends StatefulWidget {
-  const NavBar({super.key});
+class GenericPage extends StatefulWidget {
+  final List<Widget> bodyContent;
+
+  const GenericPage({
+    super.key,
+    required this.bodyContent,
+  });
 
   @override
-  State<NavBar> createState() => _NavBarState();
+  State<GenericPage> createState() => _GenericPageState();
 }
 
-class _NavBarState extends State<NavBar> {
+class _GenericPageState extends State<GenericPage> {
   bool _showMenu = false;
 
   void _toggleDropDown(){
