@@ -287,6 +287,19 @@ class _GenericPageState extends State<GenericPage> {
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
+                                if(isSmallScreen)IconButton(
+                                icon: Icon(
+                                  _showMenu ? Icons.close : Icons.menu,
+                                  size: 18,
+                                  color: Colors.grey,
+                                ),
+                                padding: const EdgeInsets.all(8),
+                                constraints: const BoxConstraints(
+                                  minWidth: 32,
+                                  minHeight: 32,
+                                ),
+                                onPressed: _toggleDropDown,
+                              ),//Show this icon only when screen is small
                                 IconButton(
                                   icon: const Icon(
                                     Icons.search,
@@ -326,19 +339,6 @@ class _GenericPageState extends State<GenericPage> {
                                   ),
                                   onPressed: () => navigateToGeneric(context, 'cart'),
                                 ),
-                                if(isSmallScreen)IconButton(
-                                  icon: Icon(
-                                    _showMenu ? Icons.close : Icons.menu,
-                                    size: 18,
-                                    color: Colors.grey,
-                                  ),
-                                  padding: const EdgeInsets.all(8),
-                                  constraints: const BoxConstraints(
-                                    minWidth: 32,
-                                    minHeight: 32,
-                                  ),
-                                  onPressed: _toggleDropDown,
-                                ),//Show this icon only when screen is small
                               ],
                             ),
                           ),
