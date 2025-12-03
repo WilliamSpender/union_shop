@@ -60,7 +60,7 @@ class ProductPage extends StatelessWidget {
             // Product info and Purchase options
       ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 600),
-            child: const Column(
+            child:  const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
 
@@ -76,8 +76,17 @@ class ProductPage extends StatelessWidget {
 
                 SizedBox(height: 12),
 
-                //todo purchase options here
+                DropdownMenu(
+                  label: const Text('Size'),
+                  textStyle: TextStyle(fontSize: 14),
+                  initialSelection: 'Medium',
+                  dropdownMenuEntries: sizes,
+                ),
 
+                SizedBox(height: 12),
+
+
+                SizedBox(height: 12),
                 // Product price
                 Text(
                   '£15.00',
@@ -121,3 +130,9 @@ class ProductPage extends StatelessWidget {
     ]);
   }
 }
+
+const List<DropdownMenuEntry<String>> sizes = [
+  DropdownMenuEntry(value: 'Small', label: 'Small'),
+  DropdownMenuEntry(value: 'Medium', label: 'Medium'),
+  DropdownMenuEntry(value: 'Large', label: 'Large'),
+];
