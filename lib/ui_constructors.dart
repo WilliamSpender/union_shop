@@ -357,7 +357,7 @@ class _GenericPageState extends State<GenericPage> {
             if (_showMenu&isSmallScreen)
               Container(
                 width: double.infinity,
-                color: Colors.grey,
+                color: Colors.grey[150],
                 child: Column(
                   children: navSelectionBuilder(context)
                 ),
