@@ -7,7 +7,7 @@ class AboutUsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return buildGenericPage(context, [
+    return GenericPage(bodyContent: [
       //Main body
       Container(
         color: Colors.white,

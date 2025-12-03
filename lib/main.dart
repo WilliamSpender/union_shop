@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return buildGenericPage(context, [
+    return GenericPage(bodyContent: [
             // Hero Section
             SizedBox(
               height: 400,
