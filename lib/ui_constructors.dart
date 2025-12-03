@@ -231,6 +231,10 @@ class _GenericPageState extends State<GenericPage> {
 
   @override
   Widget build(BuildContext context) {
+
+    double screenWidth = MediaQuery.of(context).size.width;
+    bool isSmallScreen = screenWidth < 600;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -269,7 +273,8 @@ class _GenericPageState extends State<GenericPage> {
                           //Union Logo
                           getUnionLogo(context),
 
-                          Expanded(
+                          //Navigation selections. HSow only when screen is small
+                          if(!isSmallScreen)Expanded(
                             child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -321,7 +326,7 @@ class _GenericPageState extends State<GenericPage> {
                                   ),
                                   onPressed: () => navigateToGeneric(context, 'cart'),
                                 ),
-                                IconButton(
+                                if(isSmallScreen)IconButton(
                                   icon: Icon(
                                     _showMenu ? Icons.close : Icons.menu,
                                     size: 18,
@@ -333,7 +338,7 @@ class _GenericPageState extends State<GenericPage> {
                                     minHeight: 32,
                                   ),
                                   onPressed: _toggleDropDown,
-                                ),
+                                ),//Show this icon only when screen is small
                               ],
                             ),
                           ),
@@ -346,7 +351,7 @@ class _GenericPageState extends State<GenericPage> {
               ),
             ),
 
-            if (_showMenu)
+            if (_showMenu&isSmallScreen)
               Container(
                 width: double.infinity,
                 color: Colors.grey[200],
