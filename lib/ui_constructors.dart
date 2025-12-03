@@ -33,7 +33,86 @@ Widget buildGenericPage(BuildContext context, List<Widget> bodyContent) {
                   ),
                 ),
                 // Main header
-                const GenericPage(),
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Row(
+                      children: [
+                        //Union Logo
+                        getUnionLogo(context),
+
+                        Expanded(
+                          child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: navSelectionBuilder(context)),
+                        ),
+
+                        //Icons
+                        ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 600),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              IconButton(
+                                icon: const Icon(
+                                  Icons.search,
+                                  size: 18,
+                                  color: Colors.grey,
+                                ),
+                                padding: const EdgeInsets.all(8),
+                                constraints: const BoxConstraints(
+                                  minWidth: 32,
+                                  minHeight: 32,
+                                ),
+                                onPressed: () => navigateToGeneric(context, 'search'),
+                              ),
+                              IconButton(
+                                icon: const Icon(
+                                  Icons.person_outline,
+                                  size: 18,
+                                  color: Colors.grey,
+                                ),
+                                padding: const EdgeInsets.all(8),
+                                constraints: const BoxConstraints(
+                                  minWidth: 32,
+                                  minHeight: 32,
+                                ),
+                                onPressed: () => navigateToGeneric(context, 'sign-in'),
+                              ),
+                              IconButton(
+                                icon: const Icon(
+                                  Icons.shopping_bag_outlined,
+                                  size: 18,
+                                  color: Colors.grey,
+                                ),
+                                padding: const EdgeInsets.all(8),
+                                constraints: const BoxConstraints(
+                                  minWidth: 32,
+                                  minHeight: 32,
+                                ),
+                                onPressed: () => navigateToGeneric(context, 'cart'),
+                              ),
+                              IconButton(
+                                icon: Icon(
+                                  _showMenu ? Icons.close : Icons.menu,
+                                  size: 18,
+                                  color: Colors.grey,
+                                ),
+                                padding: const EdgeInsets.all(8),
+                                constraints: const BoxConstraints(
+                                  minWidth: 32,
+                                  minHeight: 32,
+                                ),
+                                onPressed: _toggleDropDown,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
 
               ],
             ),
