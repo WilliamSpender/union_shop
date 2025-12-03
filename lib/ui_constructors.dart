@@ -49,27 +49,6 @@ Widget buildGenericPage(BuildContext context, List<Widget> bodyContent) {
 }
 
 Expanded generateMainHeader(BuildContext context) {
-  GestureDetector unionLogo = GestureDetector(
-    onTap: () {
-      navigateToHome(context);
-    },
-    child: Image.network(
-      'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
-      height: 18,
-      fit: BoxFit.cover,
-      errorBuilder: (context, error, stackTrace) {
-        return Container(
-          color: Colors.grey[300],
-          width: 18,
-          height: 18,
-          child: const Center(
-            child: Icon(Icons.image_not_supported, color: Colors.grey),
-          ),
-        );
-      },
-    ),
-  );
-
   List<Widget> children = navSelectionBuilder(context);
   return Expanded(
     child: Container(
@@ -140,7 +119,8 @@ Expanded generateMainHeader(BuildContext context) {
                     minWidth: 32,
                     minHeight: 32,
                   ),
-                  onPressed: () => navigateToHome(context),//todo implement menu. This is a placeholder for menu
+                  onPressed: () => navigateToHome(
+                      context), //todo implement menu. This is a placeholder for menu
                 ),
               ],
             ),
@@ -204,7 +184,7 @@ Container generateFooter(
               ),
               const SizedBox(height: 20),
               TextButton(
-                onPressed: () => const {},//todo navigate to search,
+                onPressed: () => const {}, //todo navigate to search,
                 style: TextButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   minimumSize: const Size(0, 0),
@@ -220,7 +200,8 @@ Container generateFooter(
                 ),
               ),
               TextButton(
-                onPressed: () => const {},//todo navigate to terms and conditions,
+                onPressed: () => const {},
+                //todo navigate to terms and conditions,
                 style: TextButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   minimumSize: const Size(0, 0),
@@ -334,6 +315,30 @@ List<Widget> navSelectionBuilder(BuildContext context) {
   ];
 }
 
+GestureDetector getUnionLogo(BuildContext context) {
+  return GestureDetector(
+    onTap: () {
+      navigateToHome(context);
+    },
+    child: Image.network(
+      'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
+      height: 18,
+      fit: BoxFit.cover,
+      errorBuilder: (context, error, stackTrace) {
+        return Container(
+          color: Colors.grey[300],
+          width: 18,
+          height: 18,
+          child: const Center(
+            child:
+            Icon(Icons.image_not_supported, color: Colors.grey),
+          ),
+        );
+      },
+    ),
+  );
+}
+
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
 
@@ -344,28 +349,97 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   bool _showMenu = false;
 
+  void _toggleDropDown(){
+    if(_showMenu){
+      _showMenu = false;
+
+    } else {
+      _showMenu = true;
+
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    if (_showMenu) {
-      return Container(
-        width: double.infinity,
-        color: Colors.grey[200],
-        child: Column(
+    return Expanded(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Row(
           children: [
-            TextButton(
-                onPressed: () => navigateToHome(context),
-                child: const Text("Home")),
-            TextButton(
-                onPressed: () => navigateToGeneric(context, "about-us"),
-                child: const Text("About Us")),
-            TextButton(
-                onPressed: () => navigateToGeneric(context, "collections"),
-                child: const Text("Collections")),
+            //Union Logo
+            getUnionLogo(context),
+
+            Expanded(
+              child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: navSelectionBuilder(context)),
+            ),
+
+            //Icons
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 600),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    icon: const Icon(
+                      Icons.search,
+                      size: 18,
+                      color: Colors.grey,
+                    ),
+                    padding: const EdgeInsets.all(8),
+                    constraints: const BoxConstraints(
+                      minWidth: 32,
+                      minHeight: 32,
+                    ),
+                    onPressed: () => navigateToGeneric(context, 'search'),
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.person_outline,
+                      size: 18,
+                      color: Colors.grey,
+                    ),
+                    padding: const EdgeInsets.all(8),
+                    constraints: const BoxConstraints(
+                      minWidth: 32,
+                      minHeight: 32,
+                    ),
+                    onPressed: () => navigateToGeneric(context, 'sign-in'),
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.shopping_bag_outlined,
+                      size: 18,
+                      color: Colors.grey,
+                    ),
+                    padding: const EdgeInsets.all(8),
+                    constraints: const BoxConstraints(
+                      minWidth: 32,
+                      minHeight: 32,
+                    ),
+                    onPressed: () => navigateToGeneric(context, 'cart'),
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      _showMenu ? Icons.close : Icons.menu,
+                      size: 18,
+                      color: Colors.grey,
+                    ),
+                    padding: const EdgeInsets.all(8),
+                    constraints: const BoxConstraints(
+                      minWidth: 32,
+                      minHeight: 32,
+                    ),
+                    onPressed: _toggleDropDown,
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
-      );
-    }
-
-    return Container();
+      ),
+    );
   }
 }
