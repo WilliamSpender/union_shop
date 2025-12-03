@@ -33,7 +33,8 @@ Widget buildGenericPage(BuildContext context, List<Widget> bodyContent) {
                   ),
                 ),
                 // Main header
-                NavBar(),
+                const NavBar(),
+
               ],
             ),
           ),
@@ -273,7 +274,7 @@ class _NavBarState extends State<NavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    Expanded mainNavbar = Expanded(
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Row(
@@ -353,5 +354,8 @@ class _NavBarState extends State<NavBar> {
         ),
       ),
     );
+
+      return mainNavbar;
+
   }
 }
