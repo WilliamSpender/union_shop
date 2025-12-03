@@ -60,12 +60,12 @@ class ProductPage extends StatelessWidget {
             // Product info and Purchase options
       ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 600),
-            child:  const Column(
+            child:  Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
 
                 // Product name
-                Text(
+                const Text(
                   'Placeholder Product Name',
                   style: TextStyle(
                     fontSize: 28,
@@ -74,21 +74,35 @@ class ProductPage extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
 
-                DropdownMenu(
+                const DropdownMenu(
                   label: const Text('Size'),
                   textStyle: TextStyle(fontSize: 14),
                   initialSelection: 'Medium',
                   dropdownMenuEntries: sizes,
                 ),
 
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
 
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF4d2963),
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  child: const Text(
+                    'Add to cart',
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                ),
 
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 // Product price
-                Text(
+                const Text(
                   '£15.00',
                   style: TextStyle(
                     fontSize: 24,
@@ -97,10 +111,10 @@ class ProductPage extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 24),
+                const SizedBox(height: 24),
 
                 // Product description
-                Text(
+                const Text(
                   'Description',
                   style: TextStyle(
                     fontSize: 18,
@@ -109,9 +123,9 @@ class ProductPage extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
 
-                Text(
+                const Text(
                   'This is a placeholder description for the product. Students should replace this with real product information and implement proper data management.',
                   style: TextStyle(
                     fontSize: 16,
