@@ -10,15 +10,18 @@ class ProductPage extends StatelessWidget {
     return GenericPage(bodyContent: [
       // Product details
       Container(
-        color: Colors.white,
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+      width: double.infinity,
+      color: Colors.grey[50],
+      padding: const EdgeInsets.all(24),
+      child: Center(
+        child: Wrap(
+          spacing: 40,
+          alignment: WrapAlignment.start,
           children: [
             // Product image
-            Container(
-              height: 300,
-              width: double.infinity,
+        ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 600),
+            child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 color: Colors.grey[200],
@@ -52,55 +55,69 @@ class ProductPage extends StatelessWidget {
                   },
                 ),
               ),
-            ),
+            )),
 
-            const SizedBox(height: 24),
+            // Product info and Purchase options
+      ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 600),
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
 
-            // Product name
-            const Text(
-              'Placeholder Product Name',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-            ),
+                // Product name
+                Text(
+                  'Placeholder Product Name',
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
 
-            const SizedBox(height: 12),
+                SizedBox(height: 12),
 
-            // Product price
-            const Text(
-              '£15.00',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF4d2963),
-              ),
-            ),
+                //todo purchase options here
 
-            const SizedBox(height: 24),
+                // Product price
+                Text(
+                  '£15.00',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF4d2963),
+                  ),
+                ),
 
-            // Product description
-            const Text(
-              'Description',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-                color: Colors.black,
-              ),
-            ),
-            const SizedBox(height: 8),
-            const Text(
-              'This is a placeholder description for the product. Students should replace this with real product information and implement proper data management.',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-                height: 1.5,
-              ),
-            ),
+                SizedBox(height: 24),
+
+                // Product description
+                Text(
+                  'Description',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                  ),
+                ),
+
+                SizedBox(height: 8),
+
+                Text(
+                  'This is a placeholder description for the product. Students should replace this with real product information and implement proper data management.',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey,
+                    height: 1.5,
+                  ),
+                ),
+              ],
+            )),
+
+
           ],
         ),
       ),
+    )
     ]);
   }
 }
