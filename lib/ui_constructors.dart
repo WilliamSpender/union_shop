@@ -48,93 +48,43 @@ Widget buildGenericPage(BuildContext context, List<Widget> bodyContent) {
   );
 }
 
+Expanded generateMainHeader(BuildContext context) {
+  GestureDetector unionLogo = GestureDetector(
+    onTap: () {
+      navigateToHome(context);
+    },
+    child: Image.network(
+      'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
+      height: 18,
+      fit: BoxFit.cover,
+      errorBuilder: (context, error, stackTrace) {
+        return Container(
+          color: Colors.grey[300],
+          width: 18,
+          height: 18,
+          child: const Center(
+            child: Icon(Icons.image_not_supported, color: Colors.grey),
+          ),
+        );
+      },
+    ),
+  );
 
-
-Expanded generateMainHeader(
-  BuildContext context
-) {
+  List<Widget> children = navSelectionBuilder(context);
   return Expanded(
     child: Container(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Row(
         children: [
-          GestureDetector(
-            onTap: () {
-              navigateToHome(context);
-            },
-            child: Image.network(
-              'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
-              height: 18,
-              fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) {
-                return Container(
-                  color: Colors.grey[300],
-                  width: 18,
-                  height: 18,
-                  child: const Center(
-                    child: Icon(Icons.image_not_supported, color: Colors.grey),
-                  ),
-                );
-              },
-            ),
-          ),
+          unionLogo,
           Expanded(
-            child: Center(
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  TextButton(
-                    onPressed: () => navigateToHome(context),
-                    style: TextButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      minimumSize: const Size(0, 0),
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                    child: Text(
-                      'Home',
-                      style: TextStyle(
-                        color: Colors.grey[700],
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () => navigateToGeneric(context, 'about-us'),
-                    style: TextButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      minimumSize: const Size(0, 0),
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                    child: Text(
-                      'About Us',
-                      style: TextStyle(
-                        color: Colors.grey[700],
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () => navigateToGeneric(context, 'collections'),
-                    style: TextButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      minimumSize: const Size(0, 0),
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                    child: Text(
-                      'Collections',
-                      style: TextStyle(
-                        color: Colors.grey[700],
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: children),
           ),
+
+          //Icons
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 600),
             child: Row(
@@ -331,21 +281,91 @@ void navigateToGeneric(BuildContext context, String routeName) {
   Navigator.pushNamed(context, '/$routeName');
 }
 
+List<Widget> navSelectionBuilder(BuildContext context) {
+  return [
+    TextButton(
+      onPressed: () => navigateToHome(context),
+      style: TextButton.styleFrom(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        minimumSize: const Size(0, 0),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      ),
+      child: Text(
+        'Home',
+        style: TextStyle(
+          color: Colors.grey[700],
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    ),
+    TextButton(
+      onPressed: () => navigateToGeneric(context, 'about-us'),
+      style: TextButton.styleFrom(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        minimumSize: const Size(0, 0),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      ),
+      child: Text(
+        'About Us',
+        style: TextStyle(
+          color: Colors.grey[700],
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    ),
+    TextButton(
+      onPressed: () => navigateToGeneric(context, 'collections'),
+      style: TextButton.styleFrom(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        minimumSize: const Size(0, 0),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      ),
+      child: Text(
+        'Collections',
+        style: TextStyle(
+          color: Colors.grey[700],
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    ),
+  ];
+}
 
+class NavBar extends StatefulWidget {
+  const NavBar({super.key});
 
+  @override
+  State<NavBar> createState() => _NavBarState();
+}
 
+class _NavBarState extends State<NavBar> {
+  bool _showMenu = false;
 
+  @override
+  Widget build(BuildContext context) {
+    if (_showMenu) {
+      return Container(
+        width: double.infinity,
+        color: Colors.grey[200],
+        child: Column(
+          children: [
+            TextButton(
+                onPressed: () => navigateToHome(context),
+                child: const Text("Home")),
+            TextButton(
+                onPressed: () => navigateToGeneric(context, "about-us"),
+                child: const Text("About Us")),
+            TextButton(
+                onPressed: () => navigateToGeneric(context, "collections"),
+                child: const Text("Collections")),
+          ],
+        ),
+      );
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return Container();
+  }
+}
