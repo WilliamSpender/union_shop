@@ -346,6 +346,15 @@ class _GenericPageState extends State<GenericPage> {
               ),
             ),
 
+            if (_showMenu)
+              Container(
+                width: double.infinity,
+                color: Colors.grey[200],
+                child: Column(
+                  children: navSelectionBuilder(context)
+                ),
+              ),
+
             ...(widget.bodyContent),
 
             // Footer
