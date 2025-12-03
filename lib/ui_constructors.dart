@@ -2,131 +2,6 @@ import 'package:flutter/material.dart';
 
 /// Builds a generic page layout with header and footer.
 /// Accepts a list of widgets for the body content.
-Widget buildGenericPage(BuildContext context, List<Widget> bodyContent) {
-  return Scaffold(
-    body: SingleChildScrollView(
-      child: Column(
-        children: [
-          // Header
-          Container(
-            height: 100,
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              border: Border(
-                bottom: BorderSide(
-                  color: Colors.grey,
-                  width: 1.5,
-                ),
-              ),
-            ),
-            child: Column(
-              children: [
-                // Top banner
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  color: const Color(0xFF4d2963),
-                  child: const Text(
-                    'PLACEHOLDER HEADER TEXT',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white, fontSize: 16),
-                  ),
-                ),
-                // Main header
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Row(
-                      children: [
-                        //Union Logo
-                        getUnionLogo(context),
-
-                        Expanded(
-                          child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: navSelectionBuilder(context)),
-                        ),
-
-                        //Icons
-                        ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 600),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IconButton(
-                                icon: const Icon(
-                                  Icons.search,
-                                  size: 18,
-                                  color: Colors.grey,
-                                ),
-                                padding: const EdgeInsets.all(8),
-                                constraints: const BoxConstraints(
-                                  minWidth: 32,
-                                  minHeight: 32,
-                                ),
-                                onPressed: () => navigateToGeneric(context, 'search'),
-                              ),
-                              IconButton(
-                                icon: const Icon(
-                                  Icons.person_outline,
-                                  size: 18,
-                                  color: Colors.grey,
-                                ),
-                                padding: const EdgeInsets.all(8),
-                                constraints: const BoxConstraints(
-                                  minWidth: 32,
-                                  minHeight: 32,
-                                ),
-                                onPressed: () => navigateToGeneric(context, 'sign-in'),
-                              ),
-                              IconButton(
-                                icon: const Icon(
-                                  Icons.shopping_bag_outlined,
-                                  size: 18,
-                                  color: Colors.grey,
-                                ),
-                                padding: const EdgeInsets.all(8),
-                                constraints: const BoxConstraints(
-                                  minWidth: 32,
-                                  minHeight: 32,
-                                ),
-                                onPressed: () => navigateToGeneric(context, 'cart'),
-                              ),
-                              IconButton(
-                                icon: Icon(
-                                  _showMenu ? Icons.close : Icons.menu,
-                                  size: 18,
-                                  color: Colors.grey,
-                                ),
-                                padding: const EdgeInsets.all(8),
-                                constraints: const BoxConstraints(
-                                  minWidth: 32,
-                                  minHeight: 32,
-                                ),
-                                onPressed: _toggleDropDown,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-
-              ],
-            ),
-          ),
-
-          ...bodyContent,
-
-          // Footer
-          generateFooter(context),
-        ],
-      ),
-    ),
-  );
-}
 
 
 Container generateFooter(
@@ -358,88 +233,129 @@ class _GenericPageState extends State<GenericPage> {
 
   @override
   Widget build(BuildContext context) {
-    Expanded mainNavbar = Expanded(
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Row(
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
           children: [
-            //Union Logo
-            getUnionLogo(context),
-
-            Expanded(
-              child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: navSelectionBuilder(context)),
-            ),
-
-            //Icons
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 600),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
+            // Header
+            Container(
+              height: 100,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                border: Border(
+                  bottom: BorderSide(
+                    color: Colors.grey,
+                    width: 1.5,
+                  ),
+                ),
+              ),
+              child: Column(
                 children: [
-                  IconButton(
-                    icon: const Icon(
-                      Icons.search,
-                      size: 18,
-                      color: Colors.grey,
+                  // Top banner
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    color: const Color(0xFF4d2963),
+                    child: const Text(
+                      'PLACEHOLDER HEADER TEXT',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
-                    padding: const EdgeInsets.all(8),
-                    constraints: const BoxConstraints(
-                      minWidth: 32,
-                      minHeight: 32,
-                    ),
-                    onPressed: () => navigateToGeneric(context, 'search'),
                   ),
-                  IconButton(
-                    icon: const Icon(
-                      Icons.person_outline,
-                      size: 18,
-                      color: Colors.grey,
+                  // Main header
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Row(
+                        children: [
+                          //Union Logo
+                          getUnionLogo(context),
+
+                          Expanded(
+                            child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: navSelectionBuilder(context)),
+                          ),
+
+                          //Icons
+                          ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 600),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                IconButton(
+                                  icon: const Icon(
+                                    Icons.search,
+                                    size: 18,
+                                    color: Colors.grey,
+                                  ),
+                                  padding: const EdgeInsets.all(8),
+                                  constraints: const BoxConstraints(
+                                    minWidth: 32,
+                                    minHeight: 32,
+                                  ),
+                                  onPressed: () => navigateToGeneric(context, 'search'),
+                                ),
+                                IconButton(
+                                  icon: const Icon(
+                                    Icons.person_outline,
+                                    size: 18,
+                                    color: Colors.grey,
+                                  ),
+                                  padding: const EdgeInsets.all(8),
+                                  constraints: const BoxConstraints(
+                                    minWidth: 32,
+                                    minHeight: 32,
+                                  ),
+                                  onPressed: () => navigateToGeneric(context, 'sign-in'),
+                                ),
+                                IconButton(
+                                  icon: const Icon(
+                                    Icons.shopping_bag_outlined,
+                                    size: 18,
+                                    color: Colors.grey,
+                                  ),
+                                  padding: const EdgeInsets.all(8),
+                                  constraints: const BoxConstraints(
+                                    minWidth: 32,
+                                    minHeight: 32,
+                                  ),
+                                  onPressed: () => navigateToGeneric(context, 'cart'),
+                                ),
+                                IconButton(
+                                  icon: Icon(
+                                    _showMenu ? Icons.close : Icons.menu,
+                                    size: 18,
+                                    color: Colors.grey,
+                                  ),
+                                  padding: const EdgeInsets.all(8),
+                                  constraints: const BoxConstraints(
+                                    minWidth: 32,
+                                    minHeight: 32,
+                                  ),
+                                  onPressed: _toggleDropDown,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    padding: const EdgeInsets.all(8),
-                    constraints: const BoxConstraints(
-                      minWidth: 32,
-                      minHeight: 32,
-                    ),
-                    onPressed: () => navigateToGeneric(context, 'sign-in'),
-                  ),
-                  IconButton(
-                    icon: const Icon(
-                      Icons.shopping_bag_outlined,
-                      size: 18,
-                      color: Colors.grey,
-                    ),
-                    padding: const EdgeInsets.all(8),
-                    constraints: const BoxConstraints(
-                      minWidth: 32,
-                      minHeight: 32,
-                    ),
-                    onPressed: () => navigateToGeneric(context, 'cart'),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      _showMenu ? Icons.close : Icons.menu,
-                      size: 18,
-                      color: Colors.grey,
-                    ),
-                    padding: const EdgeInsets.all(8),
-                    constraints: const BoxConstraints(
-                      minWidth: 32,
-                      minHeight: 32,
-                    ),
-                    onPressed: _toggleDropDown,
-                  ),
+                  )
+
                 ],
               ),
             ),
+
+            ...(widget.bodyContent),
+
+            // Footer
+            generateFooter(context),
           ],
         ),
       ),
     );
-
-      return mainNavbar;
 
   }
 }
