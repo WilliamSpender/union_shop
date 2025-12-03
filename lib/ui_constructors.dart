@@ -350,13 +350,7 @@ class _NavBarState extends State<NavBar> {
   bool _showMenu = false;
 
   void _toggleDropDown(){
-    if(_showMenu){
-      _showMenu = false;
-
-    } else {
-      _showMenu = true;
-
-    }
+    setState((){_showMenu = !_showMenu;});
   }
 
   @override
