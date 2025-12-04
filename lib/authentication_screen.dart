@@ -62,6 +62,33 @@ class AuthPage extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 20),
+            const Text(
+              'or',
+              style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+              ),
+            ),
+            const SizedBox(height: 20),
+            // dummy email field
+            SizedBox(
+              width: double.infinity,
+              child: TextFormField(
+                decoration: InputDecoration(
+                  hintText: 'Email',
+                  isDense: true,
+                  contentPadding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                keyboardType: TextInputType.emailAddress,
+              ),
+            ),
+            const SizedBox(height: 10),
+
           ]),
         ),
       ),
