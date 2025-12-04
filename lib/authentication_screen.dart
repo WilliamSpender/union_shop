@@ -12,6 +12,8 @@ class AuthPage extends StatelessWidget {
       body: Center(
         child: Container(
           padding: const EdgeInsets.all(34),
+          constraints: const BoxConstraints(
+            maxWidth: 450,),
           decoration: BoxDecoration(
             color: Colors.white,
             border: Border.all(
