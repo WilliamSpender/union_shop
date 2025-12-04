@@ -23,10 +23,18 @@ class AuthPage extends StatelessWidget {
           child: Column(children: [
             getUnionLogo(context, 32),
             const SizedBox(height: 22),
-            const Text(
-              'Sign In',
-              style: TextStyle(fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold),
-            ),
+
+          Align(
+              alignment: Alignment.centerLeft,
+            child: Column(children: [
+              const Text(
+                'Sign in',
+                style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
+              ),
+            ],),
+
+          ),
+
           ]),
         ),
       ),
