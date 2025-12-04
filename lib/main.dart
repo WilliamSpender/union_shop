@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:union_shop/about_us_page.dart';
-import 'package:union_shop/ui_constructors.dart';
-import 'package:union_shop/product_page.dart';
+import 'package:union_shop/views/about_us_page.dart';
+import 'package:union_shop/views/authentication_screen.dart';
+import 'package:union_shop/views/collections_page.dart';
+import 'package:union_shop/views/product_page.dart';
+import 'package:union_shop/views/ui_constructors.dart';
 
-import 'authentication_screen.dart';
-import 'collections_page.dart';
 
 void main() {
   runApp(const UnionShopApp());

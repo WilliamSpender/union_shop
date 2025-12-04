@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'ui_constructors.dart';
+import 'package:union_shop/views/ui_constructors.dart';
 
 class ProductPage extends StatelessWidget {
   const ProductPage({super.key});
