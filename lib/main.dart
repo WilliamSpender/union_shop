@@ -1,17 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/views/about_us_page.dart';
 import 'package:union_shop/views/authentication_screen.dart';
+import 'package:union_shop/views/cart_page.dart';
 import 'package:union_shop/views/collections_page.dart';
 import 'package:union_shop/views/product_page.dart';
 import 'package:union_shop/views/ui_constructors.dart';
+
+import 'models/cart/cart_model.dart';
 
 
 void main() {
   runApp(const UnionShopApp());
 }
 
-class UnionShopApp extends StatelessWidget {
+class UnionShopApp extends StatefulWidget {
   const UnionShopApp({super.key});
+
+  @override
+  State<UnionShopApp> createState() => _UnionShopAppState();
+}
+
+class _UnionShopAppState extends State<UnionShopApp> {
+  final Cart _cart = Cart();
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +36,10 @@ class UnionShopApp extends StatelessWidget {
       initialRoute: '/',
       // When navigating to '/product', build and return the ProductPage
       // In your browser, try this link: http://localhost:49856/#/product
-      routes: {'/product': (context) => const ProductPage(),
+      routes: {'/product': (context) => ProductPage(cart: _cart),
         '/about-us': (context) => const AboutUsPage(),
         '/search': (context) => const AboutUsPage(),//todo replace placeholders with actual pages
-        '/cart': (context) => const AboutUsPage(),
+        '/cart': (context) => CartPage(cart: _cart),
         '/sign-in': (context) => const AuthPage(),
         '/collections': (context) => const CollectionsPage(),
       },
