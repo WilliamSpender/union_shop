@@ -13,7 +13,8 @@ class AuthPage extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(34),
           constraints: const BoxConstraints(
-            maxWidth: 450,),
+            maxWidth: 450,
+          ),
           decoration: BoxDecoration(
             color: Colors.white,
             border: Border.all(
@@ -22,28 +23,27 @@ class AuthPage extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(12),
           ),
-          child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
+          child: Column(mainAxisSize: MainAxisSize.min, children: [
             getUnionLogo(context, 32),
             const SizedBox(height: 22),
-
-          const Align(
+            const Align(
               alignment: Alignment.centerLeft,
-            child: Column(children: [
-              Text(
+              child: Text(
                 'Sign in',
-                style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 22),
-              Text(
+            ),
+            const SizedBox(height: 6),
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
                 "Chose how you'd like to sign in",
-                style: TextStyle(fontSize: 10, color: Colors.grey),
+                style: TextStyle(fontSize: 14, color: Colors.grey),
               ),
-            ],),
-
-          ),
-
+            ),
           ]),
         ),
       ),
