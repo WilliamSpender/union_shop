@@ -88,7 +88,24 @@ class AuthPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-
+            // dummy continue button
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.grey[150],
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: Text(
+                  'Continue',
+                  style: TextStyle(fontSize: 16, color: Colors.grey.shade800),
+                ),
+              ),
+            ),
           ]),
         ),
       ),
