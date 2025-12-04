@@ -11,7 +11,7 @@ class AuthPage extends StatelessWidget {
       backgroundColor: Colors.grey[150],
       body: Center(
         child: Container(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(34),
           decoration: BoxDecoration(
             color: Colors.white,
             border: Border.all(
@@ -20,8 +20,9 @@ class AuthPage extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(12),
           ),
+
           child: Column(children: [
-            getUnionLogo(context),
+            getUnionLogo(context, 32),
             Text(
               'Authentication Screen Placeholder',
               style: TextStyle(fontSize: 24, color: Colors.grey[600]),
