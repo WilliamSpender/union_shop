@@ -20,11 +20,13 @@ class AuthPage extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(12),
           ),
-          child:
+          child: Column(children: [
+            getUnionLogo(context),
             Text(
               'Authentication Screen Placeholder',
               style: TextStyle(fontSize: 24, color: Colors.grey[600]),
             ),
+          ]),
         ),
       ),
     );
