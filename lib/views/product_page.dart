@@ -170,9 +170,9 @@ class _ProductPageState extends State<ProductPage> {
 
                 const SizedBox(height: 8),
 
-                const Text(
-                  'This is a placeholder description for the product. Students should replace this with real product information and implement proper data management.',
-                  style: TextStyle(
+                Text(
+                  widget.item.description,
+                  style: const TextStyle(
                     fontSize: 16,
                     color: Colors.grey,
                     height: 1.5,
