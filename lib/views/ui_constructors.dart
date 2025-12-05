@@ -365,10 +365,11 @@ class _GenericPageState extends State<GenericPage> {
 
             ConstrainedBox(
                 constraints: const BoxConstraints(minHeight: 550),
-            child: Center(child: Column(
+            child: Container(color: Colors.white, child: Center(
+                child: Column(
               children:
             widget.bodyContent,
-            ))),
+            )))),
 
             // Footer
             generateFooter(context),
