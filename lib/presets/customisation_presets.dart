@@ -12,4 +12,17 @@ final ItemCustomisation colours = ItemCustomisation(defaultValueIndex: 1, name: 
   Customisation(value: 'Green'),
   Customisation(value: 'Blue'),
   Customisation(value: 'White'),
+  Customisation(value: 'Black'),
+]);
+
+final ItemCustomisation storageSize = ItemCustomisation(defaultValueIndex: 1, name: 'Storage Size', description: 'GBs of storage', options: [
+  Customisation(value: '4GB'),
+  Customisation(value: '8GB', extraCost: 2.0),
+  Customisation(value: '16GB', extraCost: 5.0),
+  Customisation(value: '2TB', extraCost: 120.0),//because why not
+]);
+
+final ItemCustomisation pen_c = ItemCustomisation(defaultValueIndex: 1, name: 'Pen', description: 'Still pen', options: [
+  Customisation(value: 'Pen?'),
+  Customisation(value: 'Pen!'),
 ]);
