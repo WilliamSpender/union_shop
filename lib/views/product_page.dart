@@ -5,7 +5,7 @@ import 'package:union_shop/views/ui_constructors.dart';
 import '../models/cart/cart_model.dart';
 
 class ProductPage extends StatelessWidget {
-  final Cart cart;
+  final CartModel cart;
 
   const ProductPage({super.key, required this.cart});
 

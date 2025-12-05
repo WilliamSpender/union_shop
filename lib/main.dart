@@ -21,7 +21,7 @@ class UnionShopApp extends StatefulWidget {
 }
 
 class _UnionShopAppState extends State<UnionShopApp> {
-  final Cart _cart = Cart();
+  final CartModel _cart = CartModel();
 
   @override
   Widget build(BuildContext context) {
