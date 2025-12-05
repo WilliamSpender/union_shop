@@ -98,9 +98,9 @@ class _ProductPageState extends State<ProductPage> {
               children: [
 
                 // Product name
-                const Text(
-                  'Placeholder Product Name',
-                  style: TextStyle(
+                Text(
+                  widget.item.name,
+                  style: const TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
