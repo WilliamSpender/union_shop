@@ -174,7 +174,7 @@ class HomeScreen extends StatelessWidget {
                           func: (item) => routeToProductPage(context, cart, item),
                         ),
                         ProductCard(
-                          item: portsmouthCityMagnet,
+                          item: classyCap,
                           func: (item) => routeToProductPage(context, cart, item),
                         ),
                       ],
