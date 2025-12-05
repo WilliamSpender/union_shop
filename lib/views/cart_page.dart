@@ -20,7 +20,6 @@ class CartPage extends StatelessWidget {
           padding: const EdgeInsets.all(40.0),
           child: Column(
             children: [
-              const SizedBox(height: 92),
               const Text(
                 'Your Cart',
                 style: TextStyle(
@@ -55,7 +54,6 @@ class CartPage extends StatelessWidget {
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
-              const SizedBox(height: 228),
             ],
           ),
         ),
