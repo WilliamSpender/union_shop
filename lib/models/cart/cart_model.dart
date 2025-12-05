@@ -14,6 +14,15 @@ class CartModel {
     }
   }
 
+  void addItem(CartItemModel newItem){
+    newItem.reCalculatePrice();
+    price += newItem.price;
+    items.add(newItem);
+  }
 
+  void removeItem(int index){
+    items.removeAt(index);
+    updateTotalPrice();
+  }
 
 }
