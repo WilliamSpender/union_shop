@@ -87,11 +87,11 @@ Container generateFooter(
               ),
             ],
           ),
-          const Column(
+          Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 child: Text(
                   'Latest Offers',
                   style: TextStyle(
@@ -100,8 +100,35 @@ Container generateFooter(
                       fontWeight: FontWeight.w600),
                 ),
               ),
-              SizedBox(height: 20),
-              //Text input box with 'Email address' and 'Subscribe' button
+              const SizedBox(height: 20),
+              // Text input box with 'Email address' and dummy 'Subscribe' button
+              SizedBox(
+                width: 260,
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Email address',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    isDense: true,
+                    contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+                  ),
+                  keyboardType: TextInputType.emailAddress,
+                ),
+              ),
+              const SizedBox(height: 8),
+              SizedBox(
+                width: 120,
+                child: ElevatedButton(
+                  onPressed: () => ScaffoldMessenger.of(context).showSnackBar( const SnackBar(content: Text('Added you to our Mailing list!'
+                ))), // dummy action
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF4d2963),
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                  ),
+                  child: const Text('Subscribe'),
+                ),
+              ),
             ],
           ),
         ],
