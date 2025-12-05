@@ -10,6 +10,8 @@ class CartItemModel {
   double price = 0.0;
   late Map<String, Customisation> customisations;
 
+  String get priceString => '£${price.toStringAsFixed(2)}';
+
   CartItemModel({
     required this.item,
     required this.quantity,
@@ -30,6 +32,10 @@ class CartItemModel {
       price += value.extraCost;
     });
     price = price * quantity;
+  }
+
+  void addCount(int quantity){
+    setCount(this.quantity+quantity);
   }
   
   void setCount(int newQuantity){
