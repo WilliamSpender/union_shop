@@ -91,12 +91,7 @@ class ProductPage extends StatelessWidget {
 
                 const SizedBox(height: 12),
 
-                const DropdownMenu(
-                  label: Text('Size'),
-                  textStyle: TextStyle(fontSize: 14),
-                  initialSelection: 'Medium',
-                  dropdownMenuEntries: sizes,
-                ),
+                //ITEM WIDGET GOES HERE
 
                 const SizedBox(height: 12),
 
@@ -159,9 +154,3 @@ class ProductPage extends StatelessWidget {
     ]);
   }
 }
-
-const List<DropdownMenuEntry<String>> sizes = [
-  DropdownMenuEntry(value: 'Small', label: 'Small'),
-  DropdownMenuEntry(value: 'Medium', label: 'Medium'),
-  DropdownMenuEntry(value: 'Large', label: 'Large'),
-];
