@@ -16,26 +16,3 @@ class Item {
     required this.customisationOptions,
   });
 }
-
-
-
-final List<Item> sampleItems = [
-  Item(
-    name: "Classic T-Shirt",
-    price: 19.99,
-    description: "A timeless classic t-shirt made from 100% cotton.",
-    imageLocation: "assets/images/classic_tshirt.png",
-  ),
-  Item(
-    name: "Denim Jeans",
-    price: 49.99,
-    description: "Comfortable and stylish denim jeans for everyday wear.",
-    imageLocation: "assets/images/denim_jeans.png",
-  ),
-  Item(
-    name: "Sneakers",
-    price: 69.99,
-    description: "Trendy sneakers that combine comfort and style.",
-    imageLocation: "assets/images/sneakers.png",
-  ),
-];
