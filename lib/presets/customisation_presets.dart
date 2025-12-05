@@ -7,7 +7,7 @@ final ItemCustomisation shirtSizes = ItemCustomisation(defaultValueIndex: 1, nam
   Customisation(value: 'X-Large', extraCost: 2.0),
 ]);
 
-final ItemCustomisation colours = ItemCustomisation(defaultValueIndex: 1, name: 'Colour', description: 'Clothing Size', options: [
+final ItemCustomisation colours = ItemCustomisation(defaultValueIndex: 3, name: 'Colour', description: 'Clothing Size', options: [
   Customisation(value: 'Red'),
   Customisation(value: 'Green'),
   Customisation(value: 'Blue'),
@@ -15,14 +15,14 @@ final ItemCustomisation colours = ItemCustomisation(defaultValueIndex: 1, name: 
   Customisation(value: 'Black'),
 ]);
 
-final ItemCustomisation storageSize = ItemCustomisation(defaultValueIndex: 1, name: 'Storage Size', description: 'GBs of storage', options: [
+final ItemCustomisation storageSize = ItemCustomisation(defaultValueIndex: 0, name: 'Storage Size', description: 'GBs of storage', options: [
   Customisation(value: '4GB'),
   Customisation(value: '8GB', extraCost: 2.0),
   Customisation(value: '16GB', extraCost: 5.0),
   Customisation(value: '2TB', extraCost: 120.0),//because why not
 ]);
 
-final ItemCustomisation pen_c = ItemCustomisation(defaultValueIndex: 1, name: 'Pen', description: 'Still pen', options: [
+final ItemCustomisation pen_c = ItemCustomisation(defaultValueIndex: 0, name: 'Pen', description: 'Still pen', options: [
   Customisation(value: 'Pen?'),
   Customisation(value: 'Pen!'),
 ]);
