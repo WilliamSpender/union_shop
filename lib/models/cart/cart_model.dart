@@ -25,4 +25,5 @@ class CartModel {
     updateTotalPrice();
   }
 
+  String get priceString => '£${price.toStringAsFixed(2)}';
 }
