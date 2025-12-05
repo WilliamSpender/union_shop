@@ -23,15 +23,16 @@ class Customisation {
 
 
 class EnumCustomisation extends ItemCustomisation {
-  final Customisation defaultValue;
+  late final Customisation defaultValue;
   late List<DropdownMenuEntry<Customisation>> customisations;
 
   EnumCustomisation({
-    required this.defaultValue,
+    int defaultValueIndex = 0,
     required super.name,
     required super.description,
     required List<Customisation> options,
   }) {
+    defaultValue = options[defaultValueIndex];
     customisations = options.map((type) {
       return DropdownMenuEntry<Customisation>(
         value: type,
