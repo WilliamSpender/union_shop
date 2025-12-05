@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/models/cart/cart_item_model.dart';
 import 'package:union_shop/models/item_customisation_models.dart';
 import 'package:union_shop/views/ui_constructors.dart';
 
@@ -27,7 +28,7 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   // track selected customisations locally so we can supply a value to DropdownButton
-  final Map<String, Customisation?> _selected = {};
+  final Map<String, Customisation> _selected = {};
 
   @override
   void initState() {
@@ -131,7 +132,7 @@ class _ProductPageState extends State<ProductPage> {
                 const SizedBox(height: 12),
 
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {widget.cart.addItem(CartItemModel(item: widget.item, quantity: 1, customisations: _selected));},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF4d2963),
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
