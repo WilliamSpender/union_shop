@@ -1,35 +1,16 @@
 import 'package:flutter/material.dart';
 
 
-abstract class ItemCustomisation  {
+class ItemCustomisation  {
   final String name;
   final String description;
-
-  const ItemCustomisation({
-    required this.name,
-    required this.description,
-  });
-}
-
-class Customisation {
-  final String value;
-  final double extraCost;
-
-  Customisation({
-    required this.value,
-    this.extraCost = 0.0,
-  });
-}
-
-
-class EnumCustomisation extends ItemCustomisation {
   late final Customisation defaultValue;
   late List<DropdownMenuEntry<Customisation>> customisations;
 
-  EnumCustomisation({
+  ItemCustomisation({
+    required this.name,
+    required this.description,
     int defaultValueIndex = 0,
-    required super.name,
-    required super.description,
     required List<Customisation> options,
   }) {
     defaultValue = options[defaultValueIndex];
@@ -40,5 +21,14 @@ class EnumCustomisation extends ItemCustomisation {
       );
     }).toList();
   }
+}
 
+class Customisation {
+  final String value;
+  final double extraCost;
+
+  Customisation({
+    required this.value,
+    this.extraCost = 0.0,
+  });
 }
