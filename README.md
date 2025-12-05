@@ -119,5 +119,6 @@ The presets contain all the data about items and collections, eg. names, prices,
 - The app does not currently support persistent cart storage. The cart is reset when the app is closed. Future improvements could include saving the cart state locally or in the cloud.
 - Some products are missing.
 - No searching/filtering functionality is currently present.
+- Testing coverage is limited/nonexistent.
 
 # Contact me at: [please don't]
