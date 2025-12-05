@@ -1,12 +1,42 @@
 
 
-import 'package:union_shop/models/item_model.dart';
+import 'package:union_shop/models/item_customisation_models.dart';
 
-class CartItem {
+import '../item_model.dart';
+
+class CartItemModel {
   final Item item;
   int quantity;
-  CartItem({required this.item, this.quantity = 1});
+  double price = 0.0;
+  Map<String, Customisation> customisations = {};
 
+  CartItemModel({
+    required this.item,
+    required this.quantity,
+  }){
+    for(ItemCustomisation customisation in item.customisationOptions){
+      customisations.putIfAbsent(customisation.name, () => customisation.defaultValue);
+    }
+    reCalculatePrice();
+  }
+  
+  void reCalculatePrice(){
+    price = item.price;
+    customisations.forEach((key, value) {
+      price += value.extraCost;
+    });
+    price = price * quantity;
+  }
+  
+  void setCount(int newQuantity){
+    if(newQuantity < 0) return;
+    quantity = newQuantity;
+    reCalculatePrice();
+  }
 
-  double get price => (item.price * quantity);
+  void updateCustomisation(String customisationName, Customisation newCustomisation){
+    customisations.update(customisationName, (value) => newCustomisation);
+    reCalculatePrice();
+  }
+  
 }
