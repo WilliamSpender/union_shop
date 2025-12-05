@@ -17,6 +17,7 @@ class AboutUsPage extends StatelessWidget {
           padding: EdgeInsets.all(40.0),
           child: Column(
             children: [
+              SizedBox(height: 48),
               Text(
                 'About Us',
                 style: TextStyle(
@@ -35,6 +36,7 @@ class AboutUsPage extends StatelessWidget {
                   letterSpacing: 1,
                 ),
               ),
+              SizedBox(height: 48),
             ],
           ),
         ),
