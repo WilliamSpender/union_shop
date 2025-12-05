@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/presets/item_presets.dart';
 import 'package:union_shop/views/about_us_page.dart';
 import 'package:union_shop/views/authentication_screen.dart';
 import 'package:union_shop/views/cart_page.dart';
 import 'package:union_shop/views/collections_page.dart';
+import 'package:union_shop/views/product_page.dart';
 import 'package:union_shop/views/ui_constructors.dart';
 
 import 'models/cart/cart_model.dart';
+import 'models/item_model.dart';
 
 
 void main() {
@@ -30,7 +33,7 @@ class _UnionShopAppState extends State<UnionShopApp> {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
       ),
-      home: const HomeScreen(),
+      home: HomeScreen(cart: _cart),
       // By default, the app starts at the '/' route, which is the HomeScreen
       initialRoute: '/',
       // When navigating to '/product', build and return the ProductPage
@@ -47,7 +50,8 @@ class _UnionShopAppState extends State<UnionShopApp> {
 }
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, required this.cart});
+  final CartModel cart;
 
   void navigateToProduct(BuildContext context) {
     Navigator.pushNamed(context, '/product');
@@ -156,30 +160,22 @@ class HomeScreen extends StatelessWidget {
                           MediaQuery.of(context).size.width > 600 ? 2 : 1,
                       crossAxisSpacing: 24,
                       mainAxisSpacing: 48,
-                      children: const [
+                      children: [
                         ProductCard(
-                          title: 'Placeholder Product 1',
-                          price: '£10.00',
-                          imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                          item: uopHoodie,
+                          func: (item) => routeToProductPage(context, cart, item),
                         ),
                         ProductCard(
-                          title: 'Placeholder Product 2',
-                          price: '£15.00',
-                          imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                          item: portsmouthTShirt,
+                          func: (item) => routeToProductPage(context, cart, item),
                         ),
                         ProductCard(
-                          title: 'Placeholder Product 3',
-                          price: '£20.00',
-                          imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                          item: portsmouthCityMagnet,
+                          func: (item) => routeToProductPage(context, cart, item),
                         ),
                         ProductCard(
-                          title: 'Placeholder Product 4',
-                          price: '£25.00',
-                          imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                          item: portsmouthCityMagnet,
+                          func: (item) => routeToProductPage(context, cart, item),
                         ),
                       ],
                     ),
@@ -194,29 +190,27 @@ class HomeScreen extends StatelessWidget {
 }
 
 class ProductCard extends StatelessWidget {
-  final String title;
-  final String price;
-  final String imageUrl;
+  final Item item;
+  final void Function(Item)? func;
 
   const ProductCard({
     super.key,
-    required this.title,
-    required this.price,
-    required this.imageUrl,
+    required this.item,
+    required this.func,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/product');
+        func?.call(item);
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             child: Image.network(
-              imageUrl,
+              item.imageLocation,
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
                 return Container(
@@ -233,13 +227,13 @@ class ProductCard extends StatelessWidget {
             children: [
               const SizedBox(height: 4),
               Text(
-                title,
+                item.name,
                 style: const TextStyle(fontSize: 14, color: Colors.black),
                 maxLines: 2,
               ),
               const SizedBox(height: 4),
               Text(
-                price,
+                '£ ${item.price.toStringAsFixed(2)}',
                 style: const TextStyle(fontSize: 13, color: Colors.grey),
               ),
             ],
