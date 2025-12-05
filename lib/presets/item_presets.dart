@@ -41,3 +41,67 @@ Made from durable tin plate, it's both lightweight and long-lasting - a perfect 
   customisationOptions: [
   ],
 );
+
+final Item classyCap = Item(
+  name: "Classy Cap",
+  price: 12.00,
+  description:
+  """Bringing to you, our Classic Caps. Available in 5 different colours.""",
+  imageLocation: "https://shop.upsu.net/cdn/shop/products/Cap-Purple_1024x1024@2x.jpg?v=1742201981",
+  customisationOptions: [
+    colours
+  ],
+);
+
+final Item pin = Item(
+  name: "Lapel Pin",
+  price: 3.00,
+  description:
+  """Our best selling University pin badges. A 22mm cut-to-shape hard enamel pin with a satin nickel finish secured in place by a clutch pin, perfectly presented in a UoP branded presentation box. 
+A sophisticated gift for yourself or someone else. """,
+  imageLocation: "https://shop.upsu.net/cdn/shop/files/lapelpins_1024x1024@2x.webp?v=1704879504",
+  customisationOptions: [
+  ],
+);
+
+final Item usbDrive = Item(
+  name: "USB Drive",
+  price: 5.50,
+  description:
+  """ Keep everything you need access to in one place""",
+  imageLocation: "https://shop.upsu.net/cdn/shop/files/lapelpins_1024x1024@2x.webp?v=1704879504",
+  customisationOptions: [
+    storageSize
+  ],
+);
+
+final Item pen = Item(
+  name: "Pen",
+  price: 1.00,
+  description:
+  """It pen!""",
+  imageLocation: "https://shop.upsu.net/cdn/shop/products/IMG_3454_b13bdf10-3a11-42d0-90ea-55cdd9314f48_360x.jpg?v=1648635743",
+  customisationOptions: [
+    pen_c
+  ],
+);
+
+final Item lanyard = Item(
+  name: "Lanyards",
+  price: 1.00,
+  description:
+  """Keep your ID or keys close""",
+  imageLocation: "https://shop.upsu.net/cdn/shop/products/IMG_0645_360x.jpg?v=1557218961",
+  customisationOptions: [
+  ],
+);
+
+final Item coffeeCup = Item(
+  name: "Coffee Cup",
+  price: 6.50,
+  description:
+  """Need I say more?""",
+  imageLocation: "https://shop.upsu.net/cdn/shop/products/IMG_0667_360x.jpg?v=1557218882",
+  customisationOptions: [
+  ],
+);
