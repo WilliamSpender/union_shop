@@ -17,7 +17,7 @@ class Customisation {
 
   Customisation({
     required this.value,
-    required this.extraCost,
+    this.extraCost = 0.0,
   });
 }
 
