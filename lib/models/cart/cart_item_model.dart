@@ -8,11 +8,12 @@ class CartItemModel {
   final Item item;
   int quantity;
   double price = 0.0;
-  Map<String, Customisation> customisations = {};
+  Map<String, Customisation> customisations;
 
   CartItemModel({
     required this.item,
     required this.quantity,
+    required this.customisations,
   }){
     for(ItemCustomisation customisation in item.customisationOptions){
       customisations.putIfAbsent(customisation.name, () => customisation.defaultValue);
