@@ -99,7 +99,9 @@ class _CartPageState extends State<CartPage> {
       bodyContent.add(const SizedBox(height: 24));
       bodyContent.add(
         ElevatedButton(
-          onPressed: () => {checkout(widget.cart, context)},
+          onPressed: () => {checkout(widget.cart, context);
+          setState(() {
+          });},
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF4d2963),
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
