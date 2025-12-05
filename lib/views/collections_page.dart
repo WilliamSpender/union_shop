@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/models/collection_model.dart';
+import 'package:union_shop/presets/collection_presets.dart';
 
 import 'package:union_shop/views/ui_constructors.dart';
 
@@ -36,28 +38,9 @@ class CollectionsPage extends StatelessWidget {
                 MediaQuery.of(context).size.width > 600 ? 3 : 2,
                 crossAxisSpacing: 24,
                 mainAxisSpacing: 48,
-                children: const [
-                  CollectionsCard(
-                    title: 'Placeholder Product 1',
-                    imageUrl:
-                    'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                  ),
-                  CollectionsCard(
-                    title: 'Placeholder Product 2',
-                    imageUrl:
-                    'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                  ),
-                  CollectionsCard(
-                    title: 'Placeholder Product 3',
-                    imageUrl:
-                    'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                  ),
-                  CollectionsCard(
-                    title: 'Placeholder Product 4',
-                    imageUrl:
-                    'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                  ),
-                ],
+                children: allCollections
+                    .map((collection) => CollectionsCard(collection: collection)).toList(),
+
               ),
             ],
           ),
@@ -68,13 +51,11 @@ class CollectionsPage extends StatelessWidget {
 }
 
 class CollectionsCard extends StatelessWidget {
-  final String title;
-  final String imageUrl;
+  final Collection collection;
 
   const CollectionsCard({
     super.key,
-    required this.title,
-    required this.imageUrl,
+    required this.collection,
   });
   @override
   Widget build(BuildContext context) {
@@ -96,7 +77,7 @@ class CollectionsCard extends StatelessWidget {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(
-                          imageUrl,
+                          collection.bannerImageLocation,
                         ),
                         fit: BoxFit.cover,
                       ),
@@ -113,7 +94,7 @@ class CollectionsCard extends StatelessWidget {
                   right: 24,
                   top: 150,
                   child: Text(
-                    title,
+                    collection.title,
                     textAlign: TextAlign.center,
                     softWrap: false,
                     maxLines: 1,
