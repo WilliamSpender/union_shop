@@ -27,4 +27,9 @@ class CartModel {
   }
 
   String get priceString => '£${price.toStringAsFixed(2)}';
+
+  void clear() {
+    items.clear();
+    price = 0.0;
+  }
 }
