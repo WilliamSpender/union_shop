@@ -3,11 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/views/ui_constructors.dart';
 
 import '../models/cart/cart_model.dart';
+import '../models/item_model.dart';
+
+void routeToProductPage(BuildContext context, CartModel cart, Item item) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => ProductPage(cart: cart, item: item),
+    ),
+  );
+}
 
 class ProductPage extends StatelessWidget {
   final CartModel cart;
+  final Item item;
 
-  const ProductPage({super.key, required this.cart});
+  const ProductPage({super.key, required this.cart, required this.item});
 
   @override
   Widget build(BuildContext context) {
