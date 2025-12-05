@@ -147,9 +147,9 @@ class _ProductPageState extends State<ProductPage> {
 
                 const SizedBox(height: 12),
                 // Product price
-                const Text(
-                  '£15.00',
-                  style: TextStyle(
+                Text(
+                  widget.item.priceString,
+                  style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF4d2963),
