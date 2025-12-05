@@ -40,7 +40,7 @@ class _UnionShopAppState extends State<UnionShopApp> {
       // In your browser, try this link: http://localhost:49856/#/product
       routes: {
         '/about-us': (context) => const AboutUsPage(),
-        '/search': (context) => const AboutUsPage(),//todo replace placeholders with actual pages
+        '/search': (context) => const AboutUsPage(),//todo implement search page
         '/cart': (context) => CartPage(cart: _cart),
         '/sign-in': (context) => const AuthPage(),
         '/collections': (context) => CollectionsPage(cart: _cart),
