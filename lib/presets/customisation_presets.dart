@@ -7,9 +7,9 @@ final ItemCustomisation shirtSizes = ItemCustomisation(defaultValueIndex: 1, nam
   Customisation(value: 'X-Large', extraCost: 2.0),
 ]);
 
-final ItemCustomisation colours = ItemCustomisation(defaultValueIndex: 1, name: 'Size', description: 'Shirt Size', options: [
-  Customisation(value: 'Small'),
-  Customisation(value: 'Medium'),
-  Customisation(value: 'Large'),
-  Customisation(value: 'X-Large'),
+final ItemCustomisation colours = ItemCustomisation(defaultValueIndex: 1, name: 'Colour', description: 'Clothing Size', options: [
+  Customisation(value: 'Red'),
+  Customisation(value: 'Green'),
+  Customisation(value: 'Blue'),
+  Customisation(value: 'White'),
 ]);
