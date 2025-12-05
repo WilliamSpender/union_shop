@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:union_shop/models/item_customisation_models.dart';
 import 'package:union_shop/views/ui_constructors.dart';
 
 import '../models/cart/cart_model.dart';
 import '../models/item_model.dart';
+import '../styles/text_themes.dart';
 
 void routeToProductPage(BuildContext context, CartModel cart, Item item) {
   Navigator.push(
@@ -14,11 +15,28 @@ void routeToProductPage(BuildContext context, CartModel cart, Item item) {
   );
 }
 
-class ProductPage extends StatelessWidget {
+class ProductPage extends StatefulWidget {
   final CartModel cart;
   final Item item;
 
   const ProductPage({super.key, required this.cart, required this.item});
+
+  @override
+  State<StatefulWidget> createState() => _ProductPageState();
+}
+
+class _ProductPageState extends State<ProductPage> {
+  // track selected customisations locally so we can supply a value to DropdownButton
+  final Map<String, Customisation?> _selected = {};
+
+  @override
+  void initState() {
+    super.initState();
+    // initialize selections from defaults (and update cartItem if needed)
+    for (final c in widget.item.customisationOptions) {
+      _selected[c.name] = c.defaultValue;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +109,24 @@ class ProductPage extends StatelessWidget {
 
                 const SizedBox(height: 12),
 
-                //ITEM WIDGET GOES HERE
+                for (ItemCustomisation customisation
+                in widget.item.customisationOptions)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: DropdownMenu(
+                      label: Text(customisation.name),
+                      textStyle: customisationStyle,
+                      initialSelection: customisation.defaultValue,
+                      dropdownMenuEntries: customisation.customisations,
+                      onSelected: (Customisation? newValue) {
+                        if (newValue != null) {
+                          setState(() {
+                            _selected[customisation.name] = newValue;
+                          });
+                        }
+                      },
+                    ),
+                  ),
 
                 const SizedBox(height: 12),
 
