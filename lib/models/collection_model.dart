@@ -6,16 +6,12 @@ class Collection {
   final String description;
   final String bannerImageLocation;
   final List<Item> items;
-  late final int itemCount;
 
-  Collection({
+  const Collection({
     required this.title,
     required this.description,
     required this.bannerImageLocation,
     required this.items,
-  }){
-    itemCount = items.length;
-  }
-
+  });
 
 }
