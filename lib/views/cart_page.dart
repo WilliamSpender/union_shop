@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/dependancies/checkout_dependancy.dart';
 import 'package:union_shop/models/cart/cart_item_model.dart';
 import 'package:union_shop/views/ui_constructors.dart';
 
@@ -11,6 +12,8 @@ class CartPage extends StatefulWidget {
 
   @override
   State<CartPage> createState() => _CartPageState();
+
+
 }
 
 class _CartPageState extends State<CartPage> {
@@ -84,7 +87,31 @@ class _CartPageState extends State<CartPage> {
         );
         index++;
       }
+      bodyContent.add(const SizedBox(height: 24));
+      bodyContent.add(
+        Center(
+          child: Text(
+            'Total: ${widget.cart.priceString}',
+            style: const TextStyle(fontSize: 38, fontWeight: FontWeight.bold),
+          ),
+        ),
+      );
+      bodyContent.add(const SizedBox(height: 24));
+      bodyContent.add(
+        ElevatedButton(
+          onPressed: () => {checkout(widget.cart, context)},
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFF4d2963),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          ),
+          child: const Text('Checkout', style: TextStyle(fontSize: 38, color: Colors.white)),
+        ),
+      );
+      bodyContent.add(const SizedBox(height: 24));
     }
+
     return GenericPage(bodyContent: bodyContent);
   }
 }
@@ -188,22 +215,20 @@ class _CartItemCardState extends State<CartItemCard> {
                   ),
                 ],
               ),
-
               ...item.customisations.entries
                   .map((entry) => Padding(
                         padding: const EdgeInsets.only(top: 4.0),
                         child: Text(
                           '${entry.key}: ${entry.value.value}',
-                          style: const TextStyle(fontSize: 14, color: Colors.black54),
+                          style: const TextStyle(
+                              fontSize: 14, color: Colors.black54),
                         ),
                       ))
                   .toList(),
-
               const SizedBox(height: 6),
               Text('Total: ${widget.cartItem.priceString}',
                   style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black)),
+                      fontWeight: FontWeight.bold, color: Colors.black)),
             ]),
           )),
     );
