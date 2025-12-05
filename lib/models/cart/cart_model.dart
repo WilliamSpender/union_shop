@@ -18,6 +18,7 @@ class CartModel {
     newItem.reCalculatePrice();
     price += newItem.price;
     items.add(newItem);
+    updateTotalPrice();
   }
 
   void removeItem(int index){
