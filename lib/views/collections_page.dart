@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'package:union_shop/views/ui_constructors.dart';
 
+import '../models/cart/cart_model.dart';
+
 class CollectionsPage extends StatelessWidget {
-  const CollectionsPage({super.key});
+  final CartModel cart;
+
+  const CollectionsPage({super.key, required this.cart});
 
   @override
   Widget build(BuildContext context) {
