@@ -29,6 +29,7 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   // track selected customisations locally so we can supply a value to DropdownButton
   final Map<String, Customisation> _selected = {};
+  int quantity = 1;
 
   @override
   void initState() {
@@ -129,10 +130,31 @@ class _ProductPageState extends State<ProductPage> {
                     ),
                   ),
 
+                const SizedBox(height: 12 ),
+
+                Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.remove_circle_outline),
+                      onPressed: () => setState(() {
+                        if (quantity > 1) quantity--;
+                      }),
+                    ),
+                    Text('$quantity',
+                        style: const TextStyle(fontSize: 16)),
+                    IconButton(
+                      icon: const Icon(Icons.add_circle_outline),
+                      onPressed: () => setState(() {
+                        quantity++;
+                      }),
+                    ),
+                  ],
+                ),
+
                 const SizedBox(height: 12),
 
                 ElevatedButton(
-                  onPressed: () {widget.cart.addItem(CartItemModel(item: widget.item, quantity: 1, customisations: _selected));},
+                  onPressed: () {widget.cart.addItem(CartItemModel(item: widget.item, quantity: quantity, customisations: _selected));},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF4d2963),
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
