@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/models/collection_model.dart';
 import 'package:union_shop/presets/collection_presets.dart';
+import 'package:union_shop/views/single_collection_page.dart';
 
 import 'package:union_shop/views/ui_constructors.dart';
 
@@ -39,7 +40,7 @@ class CollectionsPage extends StatelessWidget {
                 crossAxisSpacing: 24,
                 mainAxisSpacing: 48,
                 children: allCollections
-                    .map((collection) => CollectionsCard(collection: collection)).toList(),
+                    .map((collection) => CollectionsCard(collection: collection, cart: cart)).toList(),
 
               ),
             ],
@@ -52,16 +53,18 @@ class CollectionsPage extends StatelessWidget {
 
 class CollectionsCard extends StatelessWidget {
   final Collection collection;
+  final CartModel cart;
 
   const CollectionsCard({
     super.key,
     required this.collection,
+    required this.cart,
   });
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // TODO: Navigate to collection page
+        routeToCollectionPage(context, cart, collection);
       },
       child: AspectRatio(
         aspectRatio: 1,
