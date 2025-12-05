@@ -36,12 +36,12 @@ class _UnionShopAppState extends State<UnionShopApp> {
       initialRoute: '/',
       // When navigating to '/product', build and return the ProductPage
       // In your browser, try this link: http://localhost:49856/#/product
-      routes: {'/product': (context) => ProductPage(cart: _cart),
+      routes: {
         '/about-us': (context) => const AboutUsPage(),
         '/search': (context) => const AboutUsPage(),//todo replace placeholders with actual pages
         '/cart': (context) => CartPage(cart: _cart),
         '/sign-in': (context) => const AuthPage(),
-        '/collections': (context) => const CollectionsPage(),
+        '/collections': (context) => CollectionsPage(cart: _cart),
       },
     );
   }
