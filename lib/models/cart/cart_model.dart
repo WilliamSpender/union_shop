@@ -20,8 +20,8 @@ class CartModel {
     items.add(newItem);
   }
 
-  void removeItem(int index){
-    items.removeAt(index);
+  void removeItem(CartItemModel item){
+    items.remove(CartItemModel);
     updateTotalPrice();
   }
 
